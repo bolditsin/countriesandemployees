@@ -1,4 +1,4 @@
-#1. Выбрать среднюю зарплату по отделам.
+#1) Выбрать среднюю зарплату по отделам.
 SELECT
 	AVG(salaries.salary) AS salary, 
     departments.dept_name AS department 
@@ -10,7 +10,7 @@ LEFT JOIN
 	salaries ON dept_emp.emp_no = salaries.emp_no
 GROUP BY department;
 
-# 2. Выбрать максимальную зарплату у сотрудника.
+#2) Выбрать максимальную зарплату у сотрудника.
 SELECT 
 	max(salary) AS max_salary,
 	concat(first_name, ' ', last_name) AS employee 
@@ -22,12 +22,12 @@ GROUP BY
 ORDER BY 
 	max_salary DESC;
 
-#3. Удалить одного сотрудника, у которого максимальная зарплата.
+#3) Удалить одного сотрудника, у которого максимальная зарплата.
 DELETE FROM 
 employees 
 	WHERE emp_no = (SELECT emp_no FROM salaries HAVING max(salary));
 
-#4. Посчитать количество сотрудников во всех отделах.
+#4) Посчитать количество сотрудников во всех отделах.
 SELECT 
 	count(employees.emp_no) AS emp_count,
 	departments.dept_name AS department 
@@ -41,7 +41,7 @@ GROUP BY
 ORDER BY
 	emp_count DESC;
 
-#5. Найти количество сотрудников в отделах и посмотреть сколько всего денег получает отдел.
+#5) Найти количество сотрудников в отделах и посмотреть сколько всего денег получает отдел.
 SELECT 
 	count(employees.emp_no) AS emp_count, 
     departments.dept_name AS department, 
