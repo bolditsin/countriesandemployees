@@ -17,3 +17,4 @@ SELECT
 FROM
 	_cities cities
     WHERE regions_id = (SELECT id  FROM _regions WHERE title='Московская область');
+    
