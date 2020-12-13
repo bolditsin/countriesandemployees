@@ -57,3 +57,5 @@ GROUP BY
 	department 
 ORDER BY 
 	money DESC;
+							  
+'\n'							       
